@@ -1,0 +1,20 @@
+s#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    int n,g;
+    while(t-- != 0){
+        cin>>n>>g;
+        long long a[g]; // taking an array of gifts
+        for(int i=0;i<g;i++) 
+        cin>>a[i];  
+
+        long long ans=0; 
+        sort(a,a+g); // sorting in increasing order
+        for(int i=0;i<n;i++)
+        ans+=a[i]; // adding gift prices until we can buy gifts <= n gift(s) 
+        cout<<ans<<endl; 
+    }
+}
