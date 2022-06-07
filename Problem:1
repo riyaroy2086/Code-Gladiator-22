@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class CandidateCode {
+
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+
+    int[] arr = new int[4];
+    arr[0] = sc.nextInt(); // launch hrs
+    arr[1] = sc.nextInt(); // launch mins
+    arr[2] = sc.nextInt(); // travel hrs
+    arr[3] = sc.nextInt(); // travel mins
+
+    int travel_mins = arr[2]*60 + arr[3];// converting travel time entirely to mins
+
+    for (int i=1; i<=travel_mins; i++) {
+      arr[1] += 1;
+      if (arr[1] > 59) {  // more than 59 minutes becomes an hr
+        arr[1] = 0;
+        arr[0] += 1;
+        if (arr[0] > 23) { // more than 59 hrs becomes a day
+          arr[0] = 0;
+        }
+      }
+    }
+    System.out.println(String.format("%02d", arr[0]) + " " + String.format("%02d", arr[1]));
+  }
